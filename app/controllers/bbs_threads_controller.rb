@@ -24,7 +24,7 @@ class BbsThreadsController < ApplicationController
 
     respond_to do |format|
       if @bbs_thread.save
-        format.html { redirect_to @bbs_thread, notice: 'Bbs thread was successfully created.' }
+        format.html { redirect_to @bbs_thread, notice: t('notice.thread.create') }
         format.json { render :show, status: :created, location: @bbs_thread }
       else
         format.html { render :new }
@@ -38,7 +38,7 @@ class BbsThreadsController < ApplicationController
   def destroy
     @bbs_thread.destroy
     respond_to do |format|
-      format.html { redirect_to bbs_threads_url, notice: 'Bbs thread was successfully destroyed.' }
+      format.html { redirect_to bbs_threads_url, notice: t('notice.thread.delete') }
       format.json { head :no_content }
     end
   end

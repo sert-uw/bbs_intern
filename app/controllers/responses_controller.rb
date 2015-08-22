@@ -9,7 +9,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
-        format.html { redirect_to bbs_thread_path(@thread.id), notice: 'Response was successfully created.' }
+        format.html { redirect_to bbs_thread_path(@thread.id), notice: t('notice.response.create') }
         format.json { render :show, status: :created, location: @response }
       else
         format.html { redirect_to bbs_thread_path(@thread.id) }
@@ -23,7 +23,7 @@ class ResponsesController < ApplicationController
   def destroy
     @response.destroy
     respond_to do |format|
-      format.html { redirect_to bbs_thread_path(@thread.id), notice: 'Response was successfully destroyed.' }
+      format.html { redirect_to bbs_thread_path(@thread.id), notice: t('notice.response.delete') }
       format.json { head :no_content }
     end
   end

@@ -14,3 +14,10 @@ ja:
     create: "作成"
   response:
     create: "投稿"
+  notice:
+    thread:
+      create: "スレッドを作成しました"
+      delete: "スレッドを削除しました"
+    response:
+      create: "コメントを投稿しました"
+      delete: "コメントを削除しました"
