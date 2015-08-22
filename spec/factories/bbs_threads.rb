@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :bbs_thread do
-    name "MyString"
-address "MyString"
-title "MyString"
-body "MyString"
-password "MyString"
+    name "testUser"
+    address "test@test.test"
+    title "Test thread"
+    body "This is test."
+    password "testpass"
   end
 
 end
