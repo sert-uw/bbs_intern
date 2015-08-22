@@ -3,7 +3,10 @@ RSpec.configure do |config|
 
   config.before :suite do
     begin
+      DatabaseRewinder.start
       FactoryGirl.lint
+    ensure
+      DatabaseRewinder.clean
     end
   end
 end
