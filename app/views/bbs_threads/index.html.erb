@@ -6,10 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Address</th>
       <th>Title</th>
       <th>Body</th>
-      <th>Password</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +16,8 @@
     <% @bbs_threads.each do |bbs_thread| %>
       <tr>
         <td><%= bbs_thread.name %></td>
-        <td><%= bbs_thread.address %></td>
         <td><%= bbs_thread.title %></td>
         <td><%= bbs_thread.body %></td>
-        <td><%= bbs_thread.password %></td>
         <td><%= link_to 'Show', bbs_thread %></td>
         <td><%= link_to 'Edit', edit_bbs_thread_path(bbs_thread) %></td>
         <td><%= link_to 'Destroy', bbs_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
