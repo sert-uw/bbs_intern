@@ -21,3 +21,5 @@ ja:
     response:
       create: "コメントを投稿しました"
       delete: "コメントを削除しました"
+  err:
+    not_enough: "* がついている項目は必須です"
