@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bbs Threads</h1>
+<h1><%= t('all.thread') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Body</th>
+      <th><%= t('name') %></th>
+      <th><%= t('title') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +15,8 @@
     <% @bbs_threads.each do |bbs_thread| %>
       <tr>
         <td><%= bbs_thread.name %></td>
-        <td><%= bbs_thread.title %></td>
-        <td><%= bbs_thread.body %></td>
-        <td><%= link_to 'Show', bbs_thread %></td>
-        <td><%= link_to 'Destroy', bbs_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to bbs_thread.title, bbs_thread %></td>
+        <td><%= link_to t('destroy'), bbs_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Bbs thread', new_bbs_thread_path %>
+<%= link_to t('thread.new'), new_bbs_thread_path %>

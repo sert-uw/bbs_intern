@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('name') %>:</strong>
   <%= @bbs_thread.name %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('title') %>:</strong>
   <%= @bbs_thread.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong><%= t('body') %>:</strong>
   <%= @bbs_thread.body %>
 </p>
 
-<h2>Response</h2>
+<h2><%= t('all.response') %></h2>
 
 <%= render file: 'responses/_form', locals: { thread: @bbs_thread } %>
 <%= render file: 'responses/index', locals: { responses: @bbs_thread.responses } %>
 
-<%= link_to 'Back', bbs_threads_path %>
+<%= link_to t('back'), bbs_threads_path %>
