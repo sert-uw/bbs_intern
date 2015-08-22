@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bbs_thread.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @bbs_thread.address %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bbs_thread.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @bbs_thread.body %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @bbs_thread.password %>
+</p>
+
+<%= link_to 'Edit', edit_bbs_thread_path(@bbs_thread) %> |
+<%= link_to 'Back', bbs_threads_path %>
