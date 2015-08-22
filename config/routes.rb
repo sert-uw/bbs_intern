@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'bbs_threads#index'
 
-  resources :bbs_threads do
-    resources :responses
+  resources :bbs_threads, only: [:index, :new, :show, :create, :destroy] do
+    resources :responses, only: [:create, :destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
