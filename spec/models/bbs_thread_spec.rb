@@ -8,8 +8,6 @@ RSpec.describe BbsThread, type: :model do
 
     context 'wrong parameters' do
       it { expect(build(:bbs_thread, name: nil)).not_to be_valid }
-      it { expect(build(:bbs_thread, address: nil)).not_to be_valid }
-      it { expect(build(:bbs_thread, title: nil)).not_to be_valid }
       it { expect(build(:bbs_thread, body: nil)).not_to be_valid }
       it { expect(build(:bbs_thread, password: nil)).not_to be_valid }
     end

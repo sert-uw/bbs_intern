@@ -8,7 +8,6 @@ RSpec.describe Response, type: :model do
 
     context 'wrong parameters' do
       it { expect(build(:response, name: nil)).not_to be_valid }
-      it { expect(build(:response, address: nil)).not_to be_valid }
       it { expect(build(:response, body: nil)).not_to be_valid }
       it { expect(build(:response, password: nil)).not_to be_valid }
     end
