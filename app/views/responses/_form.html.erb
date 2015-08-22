@@ -1,16 +1,4 @@
-<%= form_for(@response) do |f| %>
-  <% if @response.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
-
-      <ul>
-      <% @response.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for :response, url: bbs_thread_responses_path(thread.id) do |f| %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
