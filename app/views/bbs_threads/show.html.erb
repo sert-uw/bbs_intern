@@ -18,6 +18,6 @@
 <h2><%= t('all.response') %></h2>
 
 <%= render file: 'responses/_form', locals: { thread: @bbs_thread } %>
-<%= render file: 'responses/index', locals: { responses: @bbs_thread.responses } %>
+<%= render file: 'responses/index', locals: { responses: @bbs_thread.responses.order("updated_at DESC") } %>
 
 <%= link_to t('back'), bbs_threads_path %>

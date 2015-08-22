@@ -1,10 +1,10 @@
 class BbsThreadsController < ApplicationController
-  before_action :set_bbs_thread, only: [:show, :edit, :update, :destroy]
+  before_action :set_bbs_thread, only: [:show, :destroy]
 
   # GET /bbs_threads
   # GET /bbs_threads.json
   def index
-    @bbs_threads = BbsThread.all
+    @bbs_threads = BbsThread.order("updated_at DESC")
   end
 
   # GET /bbs_threads/1
@@ -15,10 +15,6 @@ class BbsThreadsController < ApplicationController
   # GET /bbs_threads/new
   def new
     @bbs_thread = BbsThread.new
-  end
-
-  # GET /bbs_threads/1/edit
-  def edit
   end
 
   # POST /bbs_threads
@@ -32,20 +28,6 @@ class BbsThreadsController < ApplicationController
         format.json { render :show, status: :created, location: @bbs_thread }
       else
         format.html { render :new }
-        format.json { render json: @bbs_thread.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /bbs_threads/1
-  # PATCH/PUT /bbs_threads/1.json
-  def update
-    respond_to do |format|
-      if @bbs_thread.update(bbs_thread_params)
-        format.html { redirect_to @bbs_thread, notice: 'Bbs thread was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bbs_thread }
-      else
-        format.html { render :edit }
         format.json { render json: @bbs_thread.errors, status: :unprocessable_entity }
       end
     end
