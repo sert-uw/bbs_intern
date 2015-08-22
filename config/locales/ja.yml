@@ -1,0 +1,16 @@
+ja:
+  name: "投稿者"
+  address: "メールアドレス"
+  title: "タイトル"
+  body: "本文"
+  password: "削除用パスワード"
+  destroy: "削除"
+  back: "戻る"
+  all:
+    thread: "スレッド一覧"
+    response: "コメント一覧"
+  thread:
+    new: "スレッドを作成"
+    create: "作成"
+  response:
+    create: "投稿"
