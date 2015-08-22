@@ -20,5 +20,4 @@
 <%= render file: 'responses/_form', locals: { thread: @bbs_thread } %>
 <%= render file: 'responses/index', locals: { responses: @bbs_thread.responses } %>
 
-<%= link_to 'Edit', edit_bbs_thread_path(@bbs_thread) %> |
 <%= link_to 'Back', bbs_threads_path %>

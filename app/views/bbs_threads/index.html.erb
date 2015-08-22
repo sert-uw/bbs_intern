@@ -19,7 +19,6 @@
         <td><%= bbs_thread.title %></td>
         <td><%= bbs_thread.body %></td>
         <td><%= link_to 'Show', bbs_thread %></td>
-        <td><%= link_to 'Edit', edit_bbs_thread_path(bbs_thread) %></td>
         <td><%= link_to 'Destroy', bbs_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
