@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <div class="header">
-  <strong><%= t('title') %>:</strong>
-  <%= @bbs_thread.title %>
+  <h1><%= @bbs_thread.title %></h1>
 
-  <strong><%= t('name') %>:</strong>
+  <strong><%= t('name') %></strong>:
   <%= @bbs_thread.name %>
+
+  <strong><%= t('thread.time') %></strong>:
+  <%= @bbs_thread.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
 </div>
 
-<%= simple_format(@bbs_thread.body) %>
+<div class="body">
+  <p>
+    <%= simple_format(@bbs_thread.body) %>
+  </p>
+</div>
 
 <hr size="3" noshade>
 
