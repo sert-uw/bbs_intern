@@ -50,3 +50,4 @@ group :development, :test do
   gem 'database_rewinder'
 end
 
+gem 'twitter-bootstrap3-rails'
