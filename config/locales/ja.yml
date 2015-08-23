@@ -12,5 +12,15 @@ ja:
   thread:
     new: "スレッドを作成"
     create: "作成"
+    time: "作成日時"
   response:
+    label: "コメント投稿"
     create: "投稿"
+    time: "投稿日時"
+  notice:
+    thread:
+      create: "スレッドを作成しました"
+      delete: "スレッドを削除しました"
+    response:
+      create: "コメントを投稿しました"
+      delete: "コメントを削除しました"

@@ -1,35 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bbs Threads</h1>
+<%= link_to t('thread.new'), new_bbs_thread_path %>
 
-<table>
+<h1><%= t('all.thread') %></h1>
+
+<table id="threads">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Password</th>
+      <th><%= t('name') %></th>
+      <th><%= t('title') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @bbs_threads.each do |bbs_thread| %>
-      <tr>
-        <td><%= bbs_thread.name %></td>
-        <td><%= bbs_thread.address %></td>
-        <td><%= bbs_thread.title %></td>
-        <td><%= bbs_thread.body %></td>
-        <td><%= bbs_thread.password %></td>
-        <td><%= link_to 'Show', bbs_thread %></td>
-        <td><%= link_to 'Edit', edit_bbs_thread_path(bbs_thread) %></td>
-        <td><%= link_to 'Destroy', bbs_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody class="page">
+    <%= render @bbs_threads %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Bbs thread', new_bbs_thread_path %>
+<%= paginate @bbs_threads %>

@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bbs_thread.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @bbs_thread.address %>
-</p>
-
-<p>
-  <strong>Title:</strong>
+<div class="header">
+  <strong><%= t('title') %>:</strong>
   <%= @bbs_thread.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @bbs_thread.body %>
-</p>
+  <strong><%= t('name') %>:</strong>
+  <%= @bbs_thread.name %>
+</div>
 
-<p>
-  <strong>Password:</strong>
-  <%= @bbs_thread.password %>
-</p>
+<%= simple_format(@bbs_thread.body) %>
 
-<%= link_to 'Edit', edit_bbs_thread_path(@bbs_thread) %> |
-<%= link_to 'Back', bbs_threads_path %>
+<hr size="3" noshade>
+
+<h2><%= t('response.label') %></h2>
+<%= render file: 'responses/_form' %>
+
+<hr size="3" noshade>
+
+<div id="responses">
+  <div class="page">
+    <h2><%= t('all.response') %></h2>
+    <%= render @responses %>
+  </div>
+</div>
+
+<%= link_to t('back'), bbs_threads_path %>
+
+<%= paginate @responses %>

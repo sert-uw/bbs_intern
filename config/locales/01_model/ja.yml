@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    attributes:
+      bbs_thread:
+        name: "投稿者"
+        address: "メールアドレス"
+        title: "タイトル"
+        body: "本文"
+        password: "削除用パスワード"
+      response:
+        name: "投稿者"
+        address: "メールアドレス"
+        body: "本文"
+        password: "削除用パスワード"
+  errors:
+    template:
+      header:
+        one: "エラーが発生しました"
+        other: "%{count}個のエラーが発生しました"

@@ -1,7 +1,7 @@
 <%= form_for(@bbs_thread) do |f| %>
   <% if @bbs_thread.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@bbs_thread.errors.count, "error") %> prohibited this bbs_thread from being saved:</h2>
+      <h2><%= t('errors.template.header.other', count: @bbs_thread.errors.count) %></h2>
 
       <ul>
       <% @bbs_thread.errors.full_messages.each do |message| %>
@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label t('name') %> * <br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.label t('address') %><br>
+    <%= f.email_field :address %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label t('title') %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <%= f.label t('body') %> * <br>
+    <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.label t('password') %> * <br>
+    <%= f.password_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('thread.create') %>
   </div>
 <% end %>

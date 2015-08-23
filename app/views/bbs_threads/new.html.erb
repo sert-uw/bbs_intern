@@ -1,5 +1,7 @@
-<h1>New Bbs Thread</h1>
+<p id="notice"><%= notice %></p>
+
+<h1><%= t('thread.new') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', bbs_threads_path %>
+<%= link_to t('back'), bbs_threads_path %>
