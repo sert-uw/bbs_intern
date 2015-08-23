@@ -27,7 +27,7 @@ class BbsThreadsController < ApplicationController
         format.html { redirect_to @bbs_thread, notice: t('notice.thread.create') }
         format.json { render :show, status: :created, location: @bbs_thread }
       else
-        format.html { render :new, notice: t('err.not_enough') }
+        format.html { render :new }
         format.json { render json: @bbs_thread.errors, status: :unprocessable_entity }
       end
     end

@@ -8,11 +8,11 @@
   </thead>
 
   <tbody>
-    <% thread.responses.order("updated_at DESC").each do |response| %>
+    <% @bbs_thread.responses.order("updated_at DESC").each do |response| %>
       <tr>
         <td><%= response.name %></td>
         <td><%= response.body %></td>
-        <td><%= link_to t('destroy'), bbs_thread_response_path(thread.id, response.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('destroy'), bbs_thread_response_path(@bbs_thread.id, response.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

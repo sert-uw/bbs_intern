@@ -17,7 +17,7 @@
 
 <h2><%= t('all.response') %></h2>
 
-<%= render file: 'responses/_form', locals: { thread: @bbs_thread } %>
-<%= render file: 'responses/index', locals: { thread: @bbs_thread } %>
+<%= render file: 'responses/_form' %>
+<%= render file: 'responses/index' %>
 
 <%= link_to t('back'), bbs_threads_path %>

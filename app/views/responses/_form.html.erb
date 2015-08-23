@@ -1,4 +1,18 @@
-<%= form_for :response, url: bbs_thread_responses_path(thread.id) do |f| %>
+<%= form_for :response, url: bbs_thread_responses_path(@bbs_thread.id) do |f| %>
+  <% if @response.present? %>
+    <% if @response.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= t('errors.template.header.other', count: @response.errors.count) %></h2>
+
+        <ul>
+        <% @response.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="field">
     <%= f.label t('name') %><br>
     <%= f.text_field :name %>

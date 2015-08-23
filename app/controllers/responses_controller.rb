@@ -5,14 +5,14 @@ class ResponsesController < ApplicationController
   # POST /responses
   # POST /responses.json
   def create
-    @response = @thread.responses.build(response_params)
+    @response = @bbs_thread.responses.build(response_params)
 
     respond_to do |format|
       if @response.save
-        format.html { redirect_to bbs_thread_path(@thread.id), notice: t('notice.response.create') }
-        format.json { render :show, status: :created, location: @response }
+        format.html { redirect_to bbs_thread_path(@bbs_thread.id), notice: t('notice.response.create') }
+        format.json { render :show, status: :created, location: @bbs_response }
       else
-        format.html { redirect_to bbs_thread_path(@thread.id) }
+        format.html { render file: 'bbs_threads/show' }
         format.json { render json: @response.errors, status: :unprocessable_entity }
       end
     end
@@ -23,14 +23,14 @@ class ResponsesController < ApplicationController
   def destroy
     @response.destroy
     respond_to do |format|
-      format.html { redirect_to bbs_thread_path(@thread.id), notice: t('notice.response.delete') }
+      format.html { redirect_to bbs_thread_path(@bbs_thread.id), notice: t('notice.response.delete') }
       format.json { head :no_content }
     end
   end
 
   private
     def set_thread
-      @thread = BbsThread.find(params[:bbs_thread_id])
+      @bbs_thread = BbsThread.find(params[:bbs_thread_id])
     end
 
     # Use callbacks to share common setup or constraints between actions.
