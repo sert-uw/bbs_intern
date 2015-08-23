@@ -1,0 +1,15 @@
+ja:
+  helpers:
+  actions: "動作"
+  links:
+    back: "戻る"
+    cancel: "キャンセル"
+    confirm: "よろしいですか?"
+    destroy: "削除"
+    new: "作成"
+    edit: "編集"
+  titles:
+    edit: "%{model}を編集"
+    save: "%{model}を保存"
+    new: "%{model}を作成"
+    delete: "%{model}を削除"

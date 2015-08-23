@@ -24,3 +24,10 @@ ja:
     response:
       create: "コメントを投稿しました"
       delete: "コメントを削除しました"
+  twitter:
+    topbar:
+      label: "掲示板"
+    sidebar:
+      label: "メニュー"
+      top: "掲示板トップ"
+      new_thread: "スレッド作成"
