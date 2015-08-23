@@ -4,7 +4,7 @@ class BbsThreadsController < ApplicationController
   # GET /bbs_threads
   # GET /bbs_threads.json
   def index
-    @bbs_threads = BbsThread.order("updated_at DESC")
+    @bbs_threads = BbsThread.order("updated_at DESC").page(params[:page])
   end
 
   # GET /bbs_threads/1

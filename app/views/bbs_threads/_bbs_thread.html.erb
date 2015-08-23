@@ -1,0 +1,5 @@
+<tr class="thread">
+   <td><%= bbs_thread.name %></td>
+   <td><%= link_to bbs_thread.title, bbs_thread %></td>
+   <td><%= link_to t('destroy'), bbs_thread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
