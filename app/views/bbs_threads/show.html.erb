@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= t('name') %>:</strong>
-  <%= @bbs_thread.name %>
-</p>
-
-<p>
+<div class="header">
   <strong><%= t('title') %>:</strong>
   <%= @bbs_thread.title %>
-</p>
 
-<p>
-  <strong><%= t('body') %>:</strong>
-  <%= @bbs_thread.body %>
-</p>
+  <strong><%= t('name') %>:</strong>
+  <%= @bbs_thread.name %>
+</div>
+
+<%= simple_format(@bbs_thread.body) %>
+
+<hr size="3" noshade>
+
+<h2><%= t('response.label') %></h2>
+<%= render file: 'responses/_form' %>
+
+<hr size="3" noshade>
 
 <h2><%= t('all.response') %></h2>
-
-<%= render file: 'responses/_form' %>
 <%= render file: 'responses/index' %>
 
 <%= link_to t('back'), bbs_threads_path %>

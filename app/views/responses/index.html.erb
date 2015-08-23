@@ -1,19 +1,13 @@
-<table>
-  <thead>
-    <tr>
-      <th><%= t('name') %></th>
-      <th><%= t('body') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @bbs_thread.responses.order("updated_at DESC").each do |response| %>
+  <div class="header">
+    <strong><%= t('name') %></strong>:<%= response.name %>,
+    <strong><%= t('response.time') %></strong>:<%= response.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+    <%= link_to t('destroy'), bbs_thread_response_path(@bbs_thread.id, response.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 
-  <tbody>
-    <% @bbs_thread.responses.order("updated_at DESC").each do |response| %>
-      <tr>
-        <td><%= response.name %></td>
-        <td><%= response.body %></td>
-        <td><%= link_to t('destroy'), bbs_thread_response_path(@bbs_thread.id, response.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="body">
+    <%= simple_format(response.body) %>
+  </div>
+
+  <hr>
+<% end %>

@@ -14,19 +14,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label t('name') %><br>
+    <%= f.label t('name') %> * <br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label t('address') %><br>
-    <%= f.text_field :address %>
+    <%= f.email_field :address %>
   </div>
   <div class="field">
-    <%= f.label t('body') %><br>
-    <%= f.text_field :body %>
+    <%= f.label t('body') %> * <br>
+    <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label t('password') %><br>
+    <%= f.label t('password') %> * <br>
     <%= f.password_field :password %>
   </div>
   <div class="actions">
