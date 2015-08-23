@@ -10,6 +10,7 @@ class BbsThreadsController < ApplicationController
   # GET /bbs_threads/1
   # GET /bbs_threads/1.json
   def show
+    @responses = @bbs_thread.responses.order("updated_at DESC").page(params[:page])
   end
 
   # GET /bbs_threads/new

@@ -17,7 +17,13 @@
 
 <hr size="3" noshade>
 
-<h2><%= t('all.response') %></h2>
-<%= render file: 'responses/index' %>
+<div id="responses">
+  <div class="page">
+    <h2><%= t('all.response') %></h2>
+    <%= render @responses %>
+  </div>
+</div>
 
 <%= link_to t('back'), bbs_threads_path %>
+
+<%= paginate @responses %>
