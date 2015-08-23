@@ -1,11 +1,11 @@
 <%= form_for :response, url: bbs_thread_responses_path(@bbs_thread.id) do |f| %>
-  <% if @response.present? %>
-    <% if @response.errors.any? %>
+  <% if alert.present? %>
+    <% if alert.any? %>
       <div id="error_explanation">
-        <h2><%= t('errors.template.header.other', count: @response.errors.count) %></h2>
+        <h2><%= t('errors.template.header.other', count: alert.count) %></h2>
 
         <ul>
-        <% @response.errors.full_messages.each do |message| %>
+        <% alert.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>

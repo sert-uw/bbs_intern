@@ -12,7 +12,7 @@ class ResponsesController < ApplicationController
         format.html { redirect_to bbs_thread_path(@bbs_thread.id), notice: t('notice.response.create') }
         format.json { render :show, status: :created, location: @bbs_response }
       else
-        format.html { render file: 'bbs_threads/show' }
+        format.html { redirect_to bbs_thread_path(@bbs_thread.id), alert: @response.errors.full_messages }
         format.json { render json: @response.errors, status: :unprocessable_entity }
       end
     end
