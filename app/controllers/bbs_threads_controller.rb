@@ -42,10 +42,14 @@ class BbsThreadsController < ApplicationController
   # DELETE /bbs_threads/1
   # DELETE /bbs_threads/1.json
   def destroy
-    @bbs_thread.destroy
     respond_to do |format|
-      format.html { redirect_to bbs_threads_url, notice: t('notice.thread.delete') }
-      format.json { head :no_content }
+      if @bbs_thread.destroy_validation delete_params
+        format.html { redirect_to bbs_threads_path, notice: t('notice.thread.delete') }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to bbs_threads_path, alert: @bbs_thread.errors.full_messages }
+        format.json { render json: @bbs_thread.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -58,6 +62,10 @@ class BbsThreadsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bbs_thread_params
       params.require(:bbs_thread).permit(:name, :address, :title, :body, :password)
+    end
+
+    def delete_params
+      params.require(:bbs_thread).permit(:password)
     end
 
     def write_bbs_session

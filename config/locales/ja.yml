@@ -21,6 +21,7 @@ ja:
     thread:
       create: "スレッドを作成しました"
       delete: "スレッドを削除しました"
+      fail: "が異なります"
     response:
       create: "コメントを投稿しました"
       delete: "コメントを削除しました"
