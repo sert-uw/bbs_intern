@@ -23,10 +23,14 @@ class ResponsesController < ApplicationController
   # DELETE /responses/1
   # DELETE /responses/1.json
   def destroy
-    @response.destroy
     respond_to do |format|
-      format.html { redirect_to bbs_thread_path(@bbs_thread.id), notice: t('notice.response.delete') }
-      format.json { head :no_content }
+      if @response.destroy_validation delete_params
+        format.html { redirect_to bbs_thread_path(@bbs_thread.id), notice: t('notice.response.delete') }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to bbs_thread_path(@bbs_thread.id), alert: @response.errors.full_messages }
+        format.json { render json: @response.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -43,6 +47,10 @@ class ResponsesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
       params.require(:response).permit(:name, :address, :body, :password)
+    end
+
+    def delete_params
+      params.require(:response).permit(:password)
     end
 
     def write_session

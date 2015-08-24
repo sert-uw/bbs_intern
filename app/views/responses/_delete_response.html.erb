@@ -1,0 +1,5 @@
+<%= form_for response, url: bbs_thread_response_path(@bbs_thread.id, response.id), method: :delete do |f| %>
+  <%= f.label t('password') %>
+  <%= f.password_field :password %>
+  <%= f.submit "削除" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= form_for bbs_thread, method: :delete do |f| %>
+  <%= f.label t('password') %>
+  <%= f.password_field :password %>
+  <%= f.submit "削除" %>
+<% end %>

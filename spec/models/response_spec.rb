@@ -33,4 +33,20 @@ RSpec.describe Response, type: :model do
       it { expect(first_thread).to eq @thread1 }
     end
   end
+
+  describe 'password authentication' do
+    before(:each) { @response = create(:response) }
+
+    context 'correct password' do
+      let(:delete_params) { { password: @response.password } }
+
+      it { expect(@response.destroy_validation delete_params).to eq true }
+    end
+
+    context 'incorrect password' do
+      let(:delete_params) { { password: "" } }
+
+      it { expect(@response.destroy_validation delete_params).to eq false }
+    end
+  end
 end

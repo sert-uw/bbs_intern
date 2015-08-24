@@ -24,6 +24,8 @@ ja:
     response:
       create: "コメントを投稿しました"
       delete: "コメントを削除しました"
+  error:
+    different: "が異なります"
   twitter:
     topbar:
       label: "掲示板"

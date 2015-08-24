@@ -1,5 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<% if alert.present? %>
+  <% if alert.any? %>
+    <div id="error_explanation">
+      <h2><%= t('errors.template.header.other', count: alert.count) %></h2>
+
+      <ul>
+      <% alert.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
 <h1><%= t('all.thread') %></h1>
 
 <div id="threads">

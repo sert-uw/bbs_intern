@@ -12,4 +12,20 @@ RSpec.describe BbsThread, type: :model do
       it { expect(build(:bbs_thread, password: nil)).not_to be_valid }
     end
   end
+
+  describe 'password authentication' do
+    before(:each) { @thread = create(:bbs_thread) }
+
+    context 'correct password' do
+      let(:delete_params) { { password: @thread.password } }
+
+      it { expect(@thread.destroy_validation delete_params).to eq true }
+    end
+
+    context 'incorrect password' do
+      let(:delete_params) { { password: "" } }
+
+      it { expect(@thread.destroy_validation delete_params).to eq false }
+    end
+  end
 end
