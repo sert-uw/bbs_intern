@@ -17,6 +17,7 @@ class Response < ActiveRecord::Base
   def destroy_validation delete_params
     if password == delete_params[:password]
       destroy
+      true
     else
       errors.add(:password, I18n.t('error.different'))
       false
