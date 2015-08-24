@@ -48,9 +48,8 @@
         <a class="navbar-brand" href="<%= root_path %>"><%= t('twitter.topbar.label') %></a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to t('twitter.sidebar.top'), root_path  %></li>
+            <li><%= link_to t('twitter.sidebar.new_thread'), new_bbs_thread_path  %></li>
           </ul>
         </div>
       </div>
