@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.cache_store = :dalli_store, 'localhost', 'localhost', { namespace: Board, expires_in: 7.day, compress: true }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

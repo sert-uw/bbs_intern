@@ -9,6 +9,8 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
+        write_session
+
         format.html { redirect_to bbs_thread_path(@bbs_thread.id), notice: t('notice.response.create') }
         format.json { render :show, status: :created, location: @bbs_response }
       else
@@ -41,5 +43,11 @@ class ResponsesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
       params.require(:response).permit(:name, :address, :body, :password)
+    end
+
+    def write_session
+      session[:name] = @bbs_thread.name
+      session[:address] = @bbs_thread.address
+      session[:password] = @bbs_thread.password
     end
 end

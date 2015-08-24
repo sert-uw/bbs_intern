@@ -11,11 +11,14 @@ class BbsThreadsController < ApplicationController
   # GET /bbs_threads/1.json
   def show
     @responses = @bbs_thread.responses.order("updated_at DESC").page(params[:page])
+    @response = @bbs_thread.responses.build
+    read_res_session
   end
 
   # GET /bbs_threads/new
   def new
     @bbs_thread = BbsThread.new
+    read_bbs_session
   end
 
   # POST /bbs_threads
@@ -25,6 +28,8 @@ class BbsThreadsController < ApplicationController
 
     respond_to do |format|
       if @bbs_thread.save
+        write_bbs_session
+
         format.html { redirect_to @bbs_thread, notice: t('notice.thread.create') }
         format.json { render :show, status: :created, location: @bbs_thread }
       else
@@ -53,5 +58,23 @@ class BbsThreadsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bbs_thread_params
       params.require(:bbs_thread).permit(:name, :address, :title, :body, :password)
+    end
+
+    def write_bbs_session
+      session[:name] = @bbs_thread.name
+      session[:address] = @bbs_thread.address
+      session[:password] = @bbs_thread.password
+    end
+
+    def read_bbs_session
+      @bbs_thread.name = session[:name]
+      @bbs_thread.address = session[:address]
+      @bbs_thread.password = session[:password]
+    end
+
+    def read_res_session
+      @response.name = session[:name]
+      @response.address = session[:address]
+      @response.password = session[:password]
     end
 end
