@@ -51,3 +51,5 @@ group :development, :test do
 end
 
 gem 'twitter-bootstrap3-rails'
+
+gem 'dalli'
