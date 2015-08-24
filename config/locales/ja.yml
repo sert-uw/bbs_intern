@@ -21,10 +21,11 @@ ja:
     thread:
       create: "スレッドを作成しました"
       delete: "スレッドを削除しました"
-      fail: "が異なります"
     response:
       create: "コメントを投稿しました"
       delete: "コメントを削除しました"
+  error:
+    different: "が異なります"
   twitter:
     topbar:
       label: "掲示板"

@@ -13,4 +13,13 @@ class Response < ActiveRecord::Base
       bbs_thread.save
     end
   end
+
+  def destroy_validation delete_params
+    if password == delete_params[:password]
+      destroy
+    else
+      errors.add(:password, I18n.t('error.different'))
+      false
+    end
+  end
 end
